@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="ru" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -22,13 +22,20 @@
             <td>ID</td>
             <td>Название продукта</td>
             <td>Цена</td>
-<!--            <td>Действие</td>-->
+            <td>Действия</td>
         </tr>
         <tbody>
         <tr ng-repeat="p in ProductsList" >
             <td>{{p.id}}</td>
             <td>{{p.title}}</td>
-            <td>{{p.cost}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="changeCost(p.id, -5)">-</button>
+                {{p.cost}}
+                <button class="btn btn-primary" ng-click="changeCost(p.id, 5)">+</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" ng-click="deleteProduct(p.id)">Исключить</button>
+            </td>
         </tr>
         </tbody>
     </table>
